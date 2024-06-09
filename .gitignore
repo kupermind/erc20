@@ -1,5 +1,12 @@
-# Object file
-*.o
+node_modules
+.env
+typechain
+*.DS_Store
+.idea
+.vscode
 
-# Ada Library Information
-*.ali
+# Hardhat files
+cache
+artifacts
+coverage
+coverage.json
