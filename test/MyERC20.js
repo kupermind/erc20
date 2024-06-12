@@ -34,6 +34,10 @@ describe("MyERC20", function () {
         it("Mint tokens", async () => {
             // Mint initial supply of tokens
             await token.mint(deployer.address, initSupply);
+
+            // Check the minted amount
+            const balance = await token.balanceOf(deployer.address);
+            expect(balance).to.equal(initSupply);
         });
 
         it("Burn tokens", async () => {
