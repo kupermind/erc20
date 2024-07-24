@@ -29,9 +29,13 @@ Compile the code:
 ```
 npx hardhat compile
 ```
-Run the tests:
+Run tests with Hardhat:
 ```
 npx hardhat test
+```
+Run tests with Foundry:
+```
+forge test --hh -vvv
 ```
 
 ## Acknowledgements
