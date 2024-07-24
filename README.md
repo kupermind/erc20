@@ -34,6 +34,13 @@ Run the tests:
 npx hardhat test
 ```
 
+### Deployment
+In order to be able to deploy contracts, copy env file, fill out sensitive data fields and source it:
+```
+cp env .env
+source .env
+```
+
 ## Acknowledgements
 The contracts were inspired and based on the following sources:
 - [Rari-Capital](https://github.com/Rari-Capital/solmate). Last known audited version: `a9e3ea26a2dc73bfa87f0cb189687d029028e0c5`;
