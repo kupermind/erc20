@@ -7,7 +7,7 @@ async function main() {
     const provider = await ethers.providers.getDefaultProvider(providerName);
     const signers = await ethers.getSigners();
 
-    EOA = signers[0];
+    const EOA = signers[0];
     // EOA address
     const deployer = await EOA.getAddress();
     console.log("EOA is:", deployer);
