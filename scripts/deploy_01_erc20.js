@@ -3,8 +3,9 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-    const providerName = "sepolia";
-    const provider = await ethers.providers.getDefaultProvider(providerName);
+    const providerName = "polygonAmoy";
+    const networkURL = "https://polygon-amoy.g.alchemy.com/v2/" + process.env.ALCHEMY_API_KEY_AMOY;
+    const provider = new ethers.providers.JsonRpcProvider(networkURL);
     const signers = await ethers.getSigners();
 
     const EOA = signers[0];

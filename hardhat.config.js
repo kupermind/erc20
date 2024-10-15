@@ -11,7 +11,10 @@ require("@nomicfoundation/hardhat-toolbox");
 
 const ALCHEMY_API_KEY_MAINNET = process.env.ALCHEMY_API_KEY_MAINNET;
 const ALCHEMY_API_KEY_SEPOLIA = process.env.ALCHEMY_API_KEY_SEPOLIA;
+const ALCHEMY_API_KEY_MATIC = process.env.ALCHEMY_API_KEY_MATIC;
+const ALCHEMY_API_KEY_AMOY = process.env.ALCHEMY_API_KEY_AMOY;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
+const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY;
 let TESTNET_MNEMONIC = process.env.TESTNET_MNEMONIC;
 
 const accounts = {
@@ -40,16 +43,38 @@ module.exports = {
             accounts: accounts,
             chainId: 1,
         },
+        polygon: {
+            url: "https://polygon-mainnet.g.alchemy.com/v2/" + ALCHEMY_API_KEY_MATIC,
+            accounts: accounts,
+            chainId: 137,
+        },
         sepolia: {
             url: "https://eth-sepolia.g.alchemy.com/v2/" + ALCHEMY_API_KEY_SEPOLIA,
             accounts: accounts,
             chainId: 11155111,
-        }
+        },
+        polygonAmoy: {
+            url: "https://polygon-amoy.g.alchemy.com/v2/" + ALCHEMY_API_KEY_AMOY,
+            accounts: accounts,
+            chainId: 80002
+        },
     },
     etherscan: {
+        customChains: [
+            {
+                network: "polygonAmoy",
+                chainId: 80002,
+                urls: {
+                    apiURL: "https://api-amoy.polygonscan.com/api",
+                    browserURL: "https://amoy.polygonscan.com/"
+                }
+            },
+        ],
         apiKey: {
             mainnet: ETHERSCAN_API_KEY,
-            sepolia: ETHERSCAN_API_KEY
+            sepolia: ETHERSCAN_API_KEY,
+            polygon: POLYGONSCAN_API_KEY,
+            polygonAmoy: POLYGONSCAN_API_KEY,
         }
     },
     solidity: {
